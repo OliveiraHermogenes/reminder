@@ -276,7 +276,10 @@ async def make_pill(user_id: UserID, display_name: str = None, client: MaubotMat
         if user_id == "@room":
             return '@room'
         else:
-            display_name = await client.get_displayname(user_id)
+            try:
+                display_name = await client.get_displayname(user_id)
+            except:
+                display_name = user_id
 
     display_name = display_name or user_id
 
