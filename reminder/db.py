@@ -144,7 +144,7 @@ class ReminderDatabase:
             # Reminder subscribers are stored in a separate table instead of in an array type for sqlite support
             if row["event_id"] in reminders:
                 # reminders[row["event_id"]].subscribed_users.append(row["user_id"])
-                reminders[row["event_id"]].subscribed_users[row["user_id"]] = row["subscribing_event"]
+                reminders[row["event_id"]].subscribed_users[row["subscribing_event"]] = row["user_id"]
                 continue
 
             start_time = datetime.fromisoformat(row["start_time"]) if row["start_time"] else None
